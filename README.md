@@ -83,6 +83,12 @@ http://localhost:5173
 
 ---
 
+🔗 Visit Live
+Explore the live application here:
+👉 Now Showing - Movie & TV Explorer
+
+---
+
 ## 🏆 Future Enhancements
 - ✅ User authentication for personalized watchlists
 - 📊 Additional filters (year, language, runtime)
