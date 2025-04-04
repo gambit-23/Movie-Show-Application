@@ -85,7 +85,7 @@ http://localhost:5173
 
 🔗 Visit Live
 Explore the live application here:
-👉 Now Showing - Movie & TV Explorer
+👉 Now Showing - Movie & TV Explorer - https://now-showing.vercel.app/
 
 ---
 
