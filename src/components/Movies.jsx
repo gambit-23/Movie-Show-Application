@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
 import Pagination from "./Pagination";
-import TrailerModal from "./TrailerModal"; // ✅ New import
+import TrailerModal from "./TrailerModal"; 
 
 function Movies({
   handleAddToWatchList,
@@ -13,8 +13,8 @@ function Movies({
 
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
-  const [trailerKey, setTrailerKey] = useState(null); // ✅
-  const [showModal, setShowModal] = useState(false); // ✅
+  const [trailerKey, setTrailerKey] = useState(null); 
+  const [showModal, setShowModal] = useState(false); 
 
   const handlePrev = () => setPage((prev) => Math.max(prev - 1, 1));
   const handleNext = () => setPage((prev) => prev + 1);
@@ -59,7 +59,7 @@ function Movies({
             handleAddToWatchList={handleAddToWatchList}
             handleRemoveFromWatchList={handleRemoveFromWatchList}
             watchList={watchList}
-            onCardClick={() => fetchTrailer(movie.id)} // ✅
+            onCardClick={() => fetchTrailer(movie.id)} 
           />
         ))}
       </div>

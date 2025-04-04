@@ -3,13 +3,13 @@ function MovieCard({
   handleAddToWatchList,
   handleRemoveFromWatchList,
   watchList,
-  onCardClick, // ✅ new prop
+  onCardClick, 
 }) {
   const isInWatchList = watchList.some((item) => item.id === movie.id);
 
   return (
     <div
-      onClick={onCardClick} // ✅ click to trigger trailer fetch
+      onClick={onCardClick} 
       className="h-[35vh] sm:h-[40vh] w-[45vw] sm:w-[200px] bg-center bg-cover rounded-2xl hover:scale-105 transition-transform duration-300 hover:cursor-pointer flex flex-col justify-between items-end relative"
       style={{
         backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.poster_path})`,
