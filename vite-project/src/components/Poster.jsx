@@ -17,19 +17,21 @@ function Banner() {
 
   return (
     <div
-      className="h-[20vh] md:h-[75vh] bg-cover bg-center flex items-end"
-      style={{
-        backgroundImage: `url('${
-          bannerMovie?.backdrop_path
-            ? `https://image.tmdb.org/t/p/original/${bannerMovie?.backdrop_path}`
-            : ""
-        })`,
-      }}
-    >
-      <div className="text-white text-xl text-center w-full bg-gray-900/60 p-2">
-        {bannerMovie?.title || bannerMovie?.name || bannerMovie?.original_name}
-      </div>
-    </div>
+  className="h-[20vh] md:h-[75vh] bg-cover bg-center flex items-end mb-2 shadow-lg"
+  style={{
+    backgroundImage: `url('${
+      bannerMovie?.backdrop_path
+        ? `https://image.tmdb.org/t/p/original/${bannerMovie?.backdrop_path}`
+        : ""
+    })`,
+  }}
+>
+  {/* Text Overlay with Styling */}
+  <div className="text-white text-2xl md:text-4xl font-bold text-center w-full bg-gradient-to-t from-gray-900 via-transparent to-transparent p-4">
+    {/* Movie Title */}
+    {bannerMovie?.title || bannerMovie?.name || bannerMovie?.original_name}
+  </div>
+</div>
   );
 }
 

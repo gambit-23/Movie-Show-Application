@@ -4,17 +4,20 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="flex border space-x-8 items-center pl-3 py-3">
-      <img className="w-[50px]" src={Logo} alt="Movie Logo" />
-
-      <Link to="/" className="text-blue-500 text-3xl font-bold">
-        Home
-      </Link>
-
-      <Link to="/watchlist" className="text-blue-500 text-3xl font-bold">
-        Watchlist
-      </Link>
-    </div>
+    <div className="flex items-center space-x-8 bg-gray-900 p-4  shadow-lg">
+  {/* Logo Section */}
+  <img className="w-[50px] h-[50px] object-contain rounded-2xl" src={Logo} alt="Movie Logo" />
+  
+  {/* Navigation Links */}
+  <div className="flex space-x-8">
+    <Link to="/" className="text-white text-2xl font-semibold hover:text-yellow-400 transition-colors duration-300">
+      Home
+    </Link>
+    <Link to="/watchlist" className="text-white text-2xl font-semibold hover:text-yellow-400 transition-colors duration-300">
+      Watchlist
+    </Link>
+  </div>
+</div>
   );
 };
 

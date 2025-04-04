@@ -17,28 +17,34 @@ function MovieCard({
 
   return (
     <div
-      className="h-[40vh] w-[200px] bg-center bg-cover rounded-xl hover:scale-110 duration-300 hover:cursor-pointer flex flex-col justify-between items-end"
+      className="h-[40vh] w-[200px] bg-center bg-cover rounded-2xl hover:scale-105 transition-transform duration-300 hover:cursor-pointer flex flex-col justify-between items-end relative"
       style={{
         backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.poster_path})`,
       }}
     >
-      {doesContain(movie) ? (
-        <div
-          onClick={() => handleRemoveFromWatchList(movie)}
-          className="m-4 p-1 flex justify-center h-8 w-8 rounded-lg bg-gray-900/60"
-        >
-          &#10060;
+      {/* Container for the buttons and text to apply overlay effect only to those sections */}
+      <div className="absolute inset-0 flex flex-col justify-between items-end p-4">
+        {/* Remove or Add to Watchlist Button */}
+        {doesContain(movie) ? (
+          <div
+            onClick={() => handleRemoveFromWatchList(movie)}
+            className="p-2 flex justify-center items-center h-10 w-10 rounded-full bg-red-600/70 hover:bg-red-700 transition-all ease-in-out"
+          >
+            <span className="text-white text-2xl">&#10060;</span>
+          </div>
+        ) : (
+          <div
+            onClick={() => handleAddToWatchList(movie)}
+            className="p-2 flex justify-center items-center h-10 w-10 rounded-full bg-yellow-400/70 hover:bg-yellow-500 transition-all ease-in-out"
+          >
+            <span className="text-white text-2xl">&#128525;</span>
+          </div>
+        )}
+
+        {/* Title Section */}
+        <div className="mt-4 w-full p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-2xl text-white text-xl font-semibold text-center">
+          {movie.original_title}
         </div>
-      ) : (
-        <div
-          onClick={() => handleAddToWatchList(movie)}
-          className="m-4 p-1 flex justify-center h-8 w-8 rounded-lg bg-gray-900/60"
-        >
-          &#128525;
-        </div>
-      )}
-      <div className="text-white rounded-xl text-xl w-full p-2 text-center bg-gray-900/60">
-        {movie.original_title}
       </div>
     </div>
   );

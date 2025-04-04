@@ -34,24 +34,30 @@ function Movies({
   }, [page]);
 
   return (
-    <div className="p-5">
-      <div className="text-2xl m-2 font-bold text-center mb-5">
-        Trending Movies
-      </div>
-      <div className="flex flex-row flex-wrap justify-around gap-8">
-        {movies.map((movie) => {
-          return (
-            <MovieCard
-              movie={movie}
-              handleAddToWatchList={handleAddToWatchList}
-              handleRemoveFromWatchList={handleRemoveFromWatchList}
-              watchList={watchList}
-            />
-          );
-        })}
-      </div>
-      <Pagination handlePrev={handlePrev} handleNext={handleNext} page={page} />
-    </div>
+    <div className="p-8 bg-gray-800 shadow-lg">
+  {/* Heading Section */}
+  <div className="text-3xl font-bold text-white text-center mb-8">
+    <span className="text-teal-400">Trending</span> Movies
+  </div>
+
+  {/* Movies Container */}
+  <div className="flex flex-row flex-wrap justify-center gap-8">
+    {movies.map((movie) => (
+      <MovieCard
+        key={movie.id} // Make sure to add the key prop for efficient rendering
+        movie={movie}
+        handleAddToWatchList={handleAddToWatchList}
+        handleRemoveFromWatchList={handleRemoveFromWatchList}
+        watchList={watchList}
+      />
+    ))}
+  </div>
+
+  {/* Pagination Section */}
+  <div className="flex justify-center mt-8 ">
+    <Pagination handlePrev={handlePrev} handleNext={handleNext} page={page} />
+  </div>
+</div>
   );
 }
 
