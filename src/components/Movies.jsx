@@ -13,19 +13,19 @@ function Movies({
 
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
-  const [trailerKey, setTrailerKey] = useState(null); 
-  const [showModal, setShowModal] = useState(false); 
+  const [trailerKey, setTrailerKey] = useState(null); // stores the youtube video key
+  const [showModal, setShowModal] = useState(false); // determines whether the modal should be visible or not
 
   const handlePrev = () => setPage((prev) => Math.max(prev - 1, 1));
   const handleNext = () => setPage((prev) => prev + 1);
 
   const fetchTrailer = async (movieId) => {
     const res = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`
+      `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}` //This makes an API call to get videos associated with the movie.
     );
     const trailers = res.data.results;
     const officialTrailer = trailers.find(
-      (vid) => vid.type === "Trailer" && vid.site === "YouTube"
+      (vid) => vid.type === "Trailer" && vid.site === "YouTube" // From the list of videos, we filter to find a YouTube Trailer
     );
     if (officialTrailer) {
       setTrailerKey(officialTrailer.key);
