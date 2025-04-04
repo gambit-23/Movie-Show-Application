@@ -52,10 +52,10 @@ Movie-Show-Application is a React.js-based web app that lets users explore trend
 ## 📸 Screenshots
 
 ### 🎬 Home Screen
-![Home Screen](./vite-project/screenshots/home-screen.jpg)
+![Home Screen](public/screenshots/home-screen.jpg)
 
 ### ⭐ Watchlist
-![Watchlist](./vite-project/screenshots/watchlist.jpg)
+![Watchlist](public/screenshots/watchlist.jpg)
 
 ## 🏆 Future Enhancements
 
