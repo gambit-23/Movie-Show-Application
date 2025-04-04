@@ -1,26 +1,38 @@
-import MovieCard from "./MovieCard";
-import { useEffect, useState, React } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import MovieCard from "./MovieCard";
 import Pagination from "./Pagination";
+import TrailerModal from "./TrailerModal"; // ✅ New import
 
 function Movies({
   handleAddToWatchList,
   handleRemoveFromWatchList,
   watchList,
 }) {
-
   const apiKey = import.meta.env.VITE_API_KEY;
-  
+
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
+  const [trailerKey, setTrailerKey] = useState(null); // ✅
+  const [showModal, setShowModal] = useState(false); // ✅
 
-  const handlePrev = () => {
-    if (page === 1) setPage(1);
-    else setPage(page - 1);
-  };
+  const handlePrev = () => setPage((prev) => Math.max(prev - 1, 1));
+  const handleNext = () => setPage((prev) => prev + 1);
 
-  const handleNext = () => {
-    setPage(page + 1);
+  const fetchTrailer = async (movieId) => {
+    const res = await axios.get(
+      `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`
+    );
+    const trailers = res.data.results;
+    const officialTrailer = trailers.find(
+      (vid) => vid.type === "Trailer" && vid.site === "YouTube"
+    );
+    if (officialTrailer) {
+      setTrailerKey(officialTrailer.key);
+      setShowModal(true);
+    } else {
+      alert("Trailer not available");
+    }
   };
 
   useEffect(() => {
@@ -28,36 +40,47 @@ function Movies({
       .get(
         `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${page}`
       )
-      .then((res) => {
-        setMovies(res.data.results);
-      });
+      .then((res) => setMovies(res.data.results));
   }, [page]);
 
   return (
-    <div className="p-8 bg-gray-800 shadow-lg">
-  {/* Heading Section */}
-  <div className="text-3xl font-bold text-white text-center mb-8">
-    <span className="text-teal-400">Trending</span> Movies
-  </div>
+    <div className="px-4 sm:px-6 md:px-8 py-6 sm:py-8 bg-gray-800 shadow-lg">
+      {/* Heading */}
+      <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-6 sm:mb-8">
+        <span className="text-teal-400">Trending</span> Movies
+      </div>
 
-  {/* Movies Container */}
-  <div className="flex flex-row flex-wrap justify-center gap-8">
-    {movies.map((movie) => (
-      <MovieCard
-        key={movie.id} // Make sure to add the key prop for efficient rendering
-        movie={movie}
-        handleAddToWatchList={handleAddToWatchList}
-        handleRemoveFromWatchList={handleRemoveFromWatchList}
-        watchList={watchList}
-      />
-    ))}
-  </div>
+      {/* Movies Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
+        {movies.map((movie) => (
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+            handleAddToWatchList={handleAddToWatchList}
+            handleRemoveFromWatchList={handleRemoveFromWatchList}
+            watchList={watchList}
+            onCardClick={() => fetchTrailer(movie.id)} // ✅
+          />
+        ))}
+      </div>
 
-  {/* Pagination Section */}
-  <div className="flex justify-center mt-8 ">
-    <Pagination handlePrev={handlePrev} handleNext={handleNext} page={page} />
-  </div>
-</div>
+      {/* Pagination */}
+      <div className="flex justify-center mt-6 sm:mt-8">
+        <Pagination
+          handlePrev={handlePrev}
+          handleNext={handleNext}
+          page={page}
+        />
+      </div>
+
+      {/* Modal */}
+      {showModal && (
+        <TrailerModal
+          trailerKey={trailerKey}
+          closeModal={() => setShowModal(false)}
+        />
+      )}
+    </div>
   );
 }
 

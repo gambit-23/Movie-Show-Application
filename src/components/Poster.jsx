@@ -17,21 +17,24 @@ function Banner() {
 
   return (
     <div
-  className="h-[20vh] md:h-[75vh] bg-cover bg-center flex items-end mb-2 shadow-lg"
-  style={{
-    backgroundImage: `url('${
-      bannerMovie?.backdrop_path
-        ? `https://image.tmdb.org/t/p/original/${bannerMovie?.backdrop_path}`
-        : ""
-    })`,
-  }}
->
-  {/* Text Overlay with Styling */}
-  <div className="text-white text-2xl md:text-4xl font-bold text-center w-full bg-gradient-to-t from-gray-900 via-transparent to-transparent p-4">
-    {/* Movie Title */}
-    {bannerMovie?.title || bannerMovie?.name || bannerMovie?.original_name}
-  </div>
-</div>
+      className="h-[30vh] sm:h-[40vh] md:h-[70vh] lg:h-[75vh] bg-cover bg-center flex items-end mb-4 shadow-xl transition-all duration-300"
+      style={{
+        backgroundImage: `url('${
+          bannerMovie?.backdrop_path
+            ? `https://image.tmdb.org/t/p/original/${bannerMovie?.backdrop_path}`
+            : ""
+        }')`,
+      }}
+    >
+      {/* Text Overlay with Responsive Styling */}
+      <div className="w-full bg-gradient-to-t from-gray-900 via-transparent to-transparent px-4 py-6 text-white text-center">
+        <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold">
+          {bannerMovie?.title ||
+            bannerMovie?.name ||
+            bannerMovie?.original_name}
+        </h1>
+      </div>
+    </div>
   );
 }
 
