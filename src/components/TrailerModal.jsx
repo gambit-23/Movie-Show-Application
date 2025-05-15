@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 function TrailerModal({ trailerKey, closeModal }) {
   return (
@@ -24,5 +24,10 @@ function TrailerModal({ trailerKey, closeModal }) {
     </div>
   );
 }
+
+TrailerModal.propTypes = {
+  trailerKey: PropTypes.string.isRequired,
+  closeModal: PropTypes.func.isRequired,
+};
 
 export default TrailerModal;

@@ -3,6 +3,7 @@ import axios from "axios";
 import MovieCard from "./MovieCard";
 import Pagination from "./Pagination";
 import TrailerModal from "./TrailerModal";
+import PropTypes from "prop-types";
 
 function Movies({
   handleAddToWatchList,
@@ -126,5 +127,11 @@ function Movies({
     </section>
   );
 }
+
+Movies.propTypes = {
+  handleAddToWatchList: PropTypes.func.isRequired,
+  handleRemoveFromWatchList: PropTypes.func.isRequired,
+  watchList: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default Movies;

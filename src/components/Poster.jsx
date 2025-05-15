@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import TrailerModal from "./TrailerModal.jsx";
-
+import PropTypes from "prop-types";
 
 function Banner({ handleAddToWatchList, watchList = [] }) {
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -106,5 +106,10 @@ function Banner({ handleAddToWatchList, watchList = [] }) {
     </div>
   );
 }
+
+Banner.propTypes = {
+  handleAddToWatchList: PropTypes.func,
+  watchList: PropTypes.array,
+};
 
 export default Banner;

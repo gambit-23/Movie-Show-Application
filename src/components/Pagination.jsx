@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { useState } from "react";
 
 const Pagination = ({ handlePrev, handleNext, handlePageJump, page }) => {
   const [inputPage, setInputPage] = useState("");
@@ -61,6 +62,13 @@ const Pagination = ({ handlePrev, handleNext, handlePageJump, page }) => {
       </div>
     </div>
   );
+};
+
+Pagination.propTypes = {
+  handlePrev: PropTypes.func.isRequired,
+  handleNext: PropTypes.func.isRequired,
+  handlePageJump: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
 };
 
 export default Pagination;

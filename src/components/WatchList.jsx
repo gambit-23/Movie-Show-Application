@@ -1,5 +1,6 @@
-import { React, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import genreids from "../utility/movieGenres";
+import PropTypes from "prop-types";
 
 function WatchList({ watchList, handleRemoveFromWatchList, setWatchList }) {
   const [search, setSearch] = useState("");
@@ -147,5 +148,20 @@ function WatchList({ watchList, handleRemoveFromWatchList, setWatchList }) {
     </div>
   );
 }
+
+WatchList.propTypes = {
+  watchList: PropTypes.arrayOf(
+    PropTypes.shape({
+      genre_ids: PropTypes.arrayOf(PropTypes.number).isRequired,
+      original_title: PropTypes.string.isRequired,
+      overview: PropTypes.string.isRequired,
+      backdrop_path: PropTypes.string,
+      vote_average: PropTypes.number.isRequired,
+      popularity: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  handleRemoveFromWatchList: PropTypes.func.isRequired,
+  setWatchList: PropTypes.func.isRequired,
+};
 
 export default WatchList;
