@@ -5,6 +5,7 @@ import Movies from "./components/Movies.jsx";
 import WatchList from "./components/WatchList.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Banner from "./components/Poster.jsx";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [watchList, setWatchList] = useState([]);
@@ -57,6 +58,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
+      <Analytics />
     </>
   );
 }
