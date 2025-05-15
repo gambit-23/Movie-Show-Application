@@ -1,4 +1,5 @@
 import genreids from "../utility/movieGenres";
+import PropTypes from "prop-types";
 
 function MovieCard({
   movie,
@@ -69,5 +70,20 @@ function MovieCard({
     </div>
   );
 }
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number,
+    poster_path: PropTypes.string,
+    original_title: PropTypes.string,
+    overview: PropTypes.string,
+    vote_average: PropTypes.number,
+    popularity: PropTypes.number,
+    genre_ids: PropTypes.arrayOf(PropTypes.number),
+  }).isRequired,
+  handleAddToWatchList: PropTypes.func.isRequired,
+  handleRemoveFromWatchList: PropTypes.func.isRequired,
+  watchList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onCardClick: PropTypes.func.isRequired,
+};
 
 export default MovieCard;
