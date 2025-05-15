@@ -1,33 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Pagination = ({ handlePrev, handleNext, page }) => {
+const Pagination = ({ handlePrev, handleNext, handlePageJump, page }) => {
+  const [inputPage, setInputPage] = useState("");
+
+  const onJump = () => {
+    const pageNumber = parseInt(inputPage, 10);
+    if (!isNaN(pageNumber) && pageNumber > 0) {
+      handlePageJump(pageNumber);
+      setInputPage("");
+    }
+  };
+
   return (
-    <div className="w-full flex justify-center mt-6 sm:mt-8">
-      <div className="bg-blue-700 px-4 py-3 flex items-center justify-between gap-4 sm:gap-6 rounded-xl shadow-2xl w-[90%] max-w-md">
-        {/* Previous Button */}
+    <div className="w-full flex flex-col sm:flex-row justify-center items-center gap-4 mt-6 sm:mt-10 px-4">
+      {/* Main pagination box */}
+      <div className="bg-gray-800 text-white w-full max-w-2xl rounded-xl shadow-md px-4 py-4 sm:px-6 sm:py-5 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
+        {/* Prev Button */}
         <button
-          onClick={page > 1 ? handlePrev : null}
+          onClick={page > 1 ? () => handlePrev() : null}
           disabled={page === 1}
-          className={`p-2 sm:px-6 sm:py-2 rounded-full transition-all duration-300 text-lg sm:text-xl text-white ${
+          className={`rounded-full px-4 py-2 sm:px-6 sm:py-2 text-sm sm:text-base transition-all duration-300 ${
             page === 1
-              ? "bg-blue-400 cursor-not-allowed"
-              : "bg-blue-600 hover:bg-blue-500"
+              ? "bg-gray-600 cursor-not-allowed"
+              : "bg-yellow-400 hover:bg-yellow-500 text-black"
           }`}
         >
-          <i className="fa-solid fa-arrow-left" />
+          <i className="fa-solid fa-arrow-left"></i>
         </button>
 
-        {/* Page Number */}
-        <div className="font-semibold text-white text-base sm:text-xl">
-          Page {page}
+        {/* Page Info */}
+        <div className="text-center text-sm sm:text-lg font-semibold">
+          Page <span className="text-yellow-400">{page}</span>
         </div>
 
         {/* Next Button */}
         <button
-          onClick={handleNext}
-          className="p-2 sm:px-6 sm:py-2 rounded-full bg-blue-600 text-white hover:bg-blue-500 transition-all duration-300 text-lg sm:text-xl"
+          onClick={() => handleNext()}
+          className="rounded-full px-4 py-2 sm:px-6 sm:py-2 bg-yellow-400 hover:bg-yellow-500 text-black text-sm sm:text-base transition-all duration-300"
         >
-          <i className="fa-solid fa-arrow-right" />
+          <i className="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+      {/* Go to page input (below on mobile, inline on desktop) */}
+      <div className="flex gap-2 sm:gap-3 items-center w-full sm:w-auto justify-center sm:justify-start">
+        <input
+          type="number"
+          min={1}
+          value={inputPage}
+          onChange={(e) => setInputPage(e.target.value)}
+          placeholder="Go to page"
+          className="bg-gray-900 text-white border border-gray-700 px-4 py-2 rounded-md w-full max-w-[140px] text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-yellow-400"
+        />
+        <button
+          onClick={onJump}
+          className="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-2 rounded-md text-sm sm:text-base transition"
+        >
+          Go
         </button>
       </div>
     </div>

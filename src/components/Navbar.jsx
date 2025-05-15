@@ -15,7 +15,7 @@ function Navbar() {
             alt="Movie Logo"
           />
           <span className="text-white text-xl font-bold hidden sm:inline">
-            MovieApp
+            Now Showing
           </span>
         </div>
 

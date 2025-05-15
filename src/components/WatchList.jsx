@@ -1,53 +1,51 @@
 import { React, useEffect, useState } from "react";
-// import "font-awesome/css/font-awesome.min.css";
 import genreids from "../utility/movieGenres";
 
 function WatchList({ watchList, handleRemoveFromWatchList, setWatchList }) {
   const [search, setSearch] = useState("");
   const [genresList, setGenresList] = useState(["All Genres"]);
   const [currentGenre, setCurrentGenre] = useState("All Genres");
-  let handleSearch = (e) => {
+
+  const handleSearch = (e) => {
     setSearch(e.target.value);
   };
 
-  let sortIncrease = () => {
-    let sortedincreasing = watchList.sort((a, b) => {
-      return a.vote_average - b.vote_average;
-    });
-    setWatchList([...sortedincreasing]);
+  const sortIncrease = () => {
+    const sortedIncreased = [...watchList].sort(
+      (a, b) => a.vote_average - b.vote_average
+    );
+    setWatchList(sortedIncreased);
   };
-  let sortDecrease = () => {
-    let sortedecreasing = watchList.sort((a, b) => {
-      return b.vote_average - a.vote_average;
-    });
-    setWatchList([...sortedecreasing]);
+
+  const sortDecrease = () => {
+    const sortedDecreased = [...watchList].sort(
+      (a, b) => b.vote_average - a.vote_average
+    );
+    setWatchList(sortedDecreased);
   };
-  let handleFilter = (genre) => {
+
+  const handleFilter = (genre) => {
     setCurrentGenre(genre);
   };
 
   useEffect(() => {
-    let temp = watchList.map((movie) => {
-      return genreids[movie.genre_ids[0]];
-    });
-    temp = [...new Set(temp)];
-    setGenresList(["All Genres", ...temp]);
-    console.log(genresList);
+    const temp = watchList.map((movie) => genreids[movie.genre_ids[0]]);
+    setGenresList(["All Genres", ...new Set(temp)]);
   }, [watchList]);
 
   return (
-    <>
-      <div className="flex justify-center flex-wrap mx-2 my-4 gap-4 sm:gap-6">
-        {/* Genre Filter */}
+    <div className="pt-16 px-4 sm:px-6 lg:px-8 bg-gray-900 min-h-screen text-sm sm:text-base">
+      {/* Genre Filter */}
+      <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
         {genresList.map((genre) => (
           <div
             key={genre}
             onClick={() => handleFilter(genre)}
             className={`${
               currentGenre === genre
-                ? "bg-gradient-to-r from-indigo-500 to-indigo-400 text-white font-semibold"
-                : "bg-gray-700 text-white bg-opacity-80"
-            } cursor-pointer flex justify-center items-center h-[2.5rem] sm:h-[3rem] w-[8rem] sm:w-[9rem] rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg text-sm sm:text-base`}
+                ? "bg-indigo-600 text-white"
+                : "bg-gray-800 text-gray-300"
+            } cursor-pointer flex justify-center items-center py-2 px-3 sm:px-4 rounded-md sm:rounded-lg text-xs sm:text-sm hover:scale-105 transform transition-all duration-300`}
           >
             {genre}
           </div>
@@ -55,53 +53,54 @@ function WatchList({ watchList, handleRemoveFromWatchList, setWatchList }) {
       </div>
 
       {/* Search Bar */}
-      <div className="flex justify-center my-6">
+      <div className="flex justify-center mb-6">
         <input
           onChange={handleSearch}
           value={search}
           type="text"
-          className="w-11/12 sm:w-2/3 md:w-1/2 lg:w-1/3 h-[2.8rem] sm:h-[3rem] bg-gray-800 text-white outline-none px-4 text-base sm:text-xl font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+          className="w-full sm:w-2/3 lg:w-1/2 xl:w-1/3 h-10 sm:h-12 bg-gray-800 text-white rounded-xl px-4 text-sm sm:text-lg font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-600"
           placeholder="Search Movies"
         />
       </div>
 
       {/* Watchlist Table */}
-      <div className="bg-gray-900 border border-gray-600 rounded-xl shadow-xl overflow-x-auto px-2 sm:px-4">
-        <table className="w-full table-auto text-gray-400 text-center">
+      <div className="overflow-x-auto bg-gray-800 rounded-xl shadow-xl">
+        <table className="min-w-full table-auto text-gray-200 text-center text-xs sm:text-sm">
           {/* Table Header */}
-          <thead className="text-white bg-gradient-to-r from-indigo-600 to-indigo-500 text-sm sm:text-base w-full">
+          <thead className="bg-gradient-to-r from-indigo-600 to-indigo-500">
             <tr>
-              <th className="text-left px-4 py-3 w-1/4">Name</th>
-              <th className="px-2 py-3 w-1/6">
-                <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3 justify-center">
+              <th className="text-left px-2 sm:px-4 py-2 sm:py-3">Name</th>
+              <th className="px-2 sm:px-4 py-2 sm:py-3">
+                <div className="flex items-center justify-center gap-2 sm:gap-3">
                   <div
                     onClick={sortIncrease}
-                    className="p-1 cursor-pointer hover:text-indigo-300 transition-all duration-300"
+                    className="cursor-pointer hover:text-indigo-400 transition-all duration-300"
                   >
                     <i className="fa fa-arrow-up" />
                   </div>
                   <div>Rating</div>
                   <div
                     onClick={sortDecrease}
-                    className="p-1 cursor-pointer hover:text-indigo-300 transition-all duration-300"
+                    className="cursor-pointer hover:text-indigo-400 transition-all duration-300"
                   >
                     <i className="fa fa-arrow-down" />
                   </div>
                 </div>
               </th>
-              <th className="px-2 py-3 w-1/6">Popularity</th>
-              <th className="px-2 py-3 w-1/6">Genre</th>
-              <th className="px-2 py-3 w-1/6">Actions</th>
+              <th className="px-2 sm:px-4 py-2 sm:py-3">Popularity</th>
+              <th className="px-2 sm:px-4 py-2 sm:py-3">Genre</th>
+              <th className="px-2 sm:px-4 py-2 sm:py-3">Actions</th>
             </tr>
           </thead>
 
           {/* Table Body */}
           <tbody>
             {watchList
-              .filter((movie) => {
-                if (currentGenre === "All Genres") return true;
-                return genreids[movie.genre_ids[0]] === currentGenre;
-              })
+              .filter(
+                (movie) =>
+                  currentGenre === "All Genres" ||
+                  genreids[movie.genre_ids[0]] === currentGenre
+              )
               .filter((movie) => {
                 return (
                   movie.original_title
@@ -113,33 +112,31 @@ function WatchList({ watchList, handleRemoveFromWatchList, setWatchList }) {
               .map((movie, index) => (
                 <tr
                   key={index}
-                  className="border-b-2 transition-all duration-300 hover:bg-gray-700 hover:text-white text-sm sm:text-base"
+                  className="border-b border-gray-600 hover:bg-gray-700 hover:text-white transition-all duration-300"
                 >
-                  <td className="flex flex-col sm:flex-row items-center sm:items-start px-4 py-3 gap-3 sm:gap-6">
-                    <img
-                      className="h-[5rem] sm:h-[6rem] w-auto rounded-lg shadow-md"
-                      src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-                      alt={movie.original_title}
-                    />
-                    <div className="text-center sm:text-left font-semibold text-gray-200 max-w-[12rem] sm:max-w-none">
-                      {movie.original_title}
+                  <td className="px-2 sm:px-4 py-3">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                      <img
+                        className="w-full sm:w-28 md:w-36 lg:w-44 max-h-40 rounded-lg object-cover shadow-md"
+                        src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                        alt={movie.original_title}
+                      />
+                      <div className="font-semibold text-left text-gray-200 text-sm sm:text-base">
+                        {movie.original_title}
+                      </div>
                     </div>
                   </td>
-                  <td className="px-2 py-3 text-gray-300">
-                    {movie.vote_average}
-                  </td>
-                  <td className="px-2 py-3 text-gray-300">
-                    {movie.popularity}
-                  </td>
-                  <td className="px-2 py-3 text-gray-300">
+                  <td className="px-2 sm:px-4 py-3">{movie.vote_average}</td>
+                  <td className="px-2 sm:px-4 py-3">{movie.popularity}</td>
+                  <td className="px-2 sm:px-4 py-3">
                     {genreids[movie.genre_ids[0]]}
                   </td>
-                  <td className="px-2 py-3">
+                  <td className="px-2 sm:px-4 py-3">
                     <button
                       onClick={() => handleRemoveFromWatchList(movie)}
-                      className="font-bold text-red-700 hover:text-red-500 transition-all duration-300"
+                      className="text-red-500 hover:text-red-300 font-bold transition-all duration-300"
                     >
-                      Delete
+                      Remove
                     </button>
                   </td>
                 </tr>
@@ -147,7 +144,7 @@ function WatchList({ watchList, handleRemoveFromWatchList, setWatchList }) {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 }
 
