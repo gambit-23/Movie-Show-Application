@@ -1,4 +1,4 @@
-import genreids from "../utility/movieGenres";
+import genreids from "../utility/movieGenres.js";
 import PropTypes from "prop-types";
 
 function MovieCard({

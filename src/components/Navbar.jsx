@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -69,10 +69,5 @@ function Navbar() {
     </div>
   );
 }
-
-Navbar.propTypes = {
-  
-}
-
 
 export default Navbar;

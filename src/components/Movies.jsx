@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import MovieCard from "./MovieCard";
-import Pagination from "./Pagination";
-import TrailerModal from "./TrailerModal";
+import MovieCard from "./MovieCard.jsx";
+import Pagination from "./Pagination.jsx";
+import TrailerModal from "./TrailerModal.jsx";
 import PropTypes from "prop-types";
 
 function Movies({

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import genreids from "../utility/movieGenres";
+import genreids from "../utility/movieGenres.js";
 import PropTypes from "prop-types";
 
 function WatchList({ watchList, handleRemoveFromWatchList, setWatchList }) {

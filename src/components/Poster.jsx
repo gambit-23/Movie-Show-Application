@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import TrailerModal from "./TrailerModal.jsx";
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 
 function Banner({ handleAddToWatchList, watchList = [] }) {
   const apiKey = import.meta.env.VITE_API_KEY;
