@@ -4,7 +4,7 @@ import TrailerModal from "./TrailerModal.jsx";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 
-function Banner({ handleAddToWatchList, watchList = [] }) {
+function Banner() {
   const apiKey = import.meta.env.VITE_API_KEY;
   const [bannerMovie, setBannerMovie] = useState();
   const [showModal, setShowModal] = useState(false);
@@ -18,7 +18,7 @@ function Banner({ handleAddToWatchList, watchList = [] }) {
       .then((res) => {
         setBannerMovie(res.data.results[0]);
       });
-  }, []);
+  }, [apiKey]);
 
   // Fetch the trailer for the movie
   const fetchTrailer = async (movieId) => {

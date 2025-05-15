@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Movies from "./components/Movies";
-import WatchList from "./components/WatchList";
+import Navbar from "./components/Navbar.jsx";
+import Movies from "./components/Movies.jsx";
+import WatchList from "./components/WatchList.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Banner from "./components/Poster";
+import Banner from "./components/Poster.jsx";
 
 function App() {
   const [watchList, setWatchList] = useState([]);
