@@ -95,7 +95,7 @@ http://localhost:5173
 ## 📸 Screenshots
 
 - **Poster**
-  ![Poster](assets/poster.jpg)
+![Poster](https://raw.githubusercontent.com/gambit-23/Movie-Show-Application/main/assets/poster.jpg)
 
 - **Home Page**
   ![Home Screen](assets/home-screen.jpg)
