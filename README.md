@@ -1,23 +1,55 @@
 # 🎬 Movie-Show-Application
 
 ## 📌 Overview
-Movie-Show-Application is a **React.js-based** web app that allows users to explore trending **movies and TV shows** using **TMDB API**. It offers an interactive and responsive UI with **pagination**, **watchlist**, **sorting**, **filtering**, and now, a **trailer viewing feature**.
+Movie-Show-Application is a fully responsive and interactive frontend web app built using React.js, Tailwind CSS, and the TMDB API. It allows users to browse trending movies and TV shows, view details, manage a watchlist, and watch trailers — all through a clean, user-friendly interface.
 
+The project is deployed on Vercel and includes CI/CD via GitHub Actions.
+
+🔗 Live Demo: Now Showing - Movie & TV Explorer
 ---
 
 ## ✨ Features
 
 ### 📌 Home Page
-- Displays **trending movies and TV shows**.
-- Responsive **grid layout** with **pagination** for smooth navigation.
+- Navigation bar with logo, Home, and Watchlist buttons.
+
+Hero Poster section showcasing highlighted content.
+
+Grid layout displaying Movie/TV Show cards with:
+
+Title, rating, and popularity.
+
+Hover effect on desktop and tap effect on mobile for brief descriptions.
+
+Trailer Modal popup for watching trailers (if available via TMDB).
+
+Pagination support:
+
+Page navigation buttons.
+
+"Go to Page" input box to jump to a specific page.
 
 ### ⭐ Watchlist
-- Add movies/TV shows from the home screen to a personalized **watchlist**.
-- **Persisted using local storage** for a seamless experience across sessions.
+- Add movies/TV shows from the home page using an Add button.
 
-### 🔍 Sorting & Filtering
-- **Sort** by rating and popularity (ascending/descending).
-- **Filter** by genre with intuitive tag-like UI.
+Once added, button changes to Remove (in both Home and Watchlist).
+
+Watchlist displayed as a responsive table with:
+
+Title, rating, popularity, genre.
+
+Remove button for each item.
+
+### 🔍 Search, Sort & Filter
+-Search functionality to find specific titles.
+
+Filter by genre.
+
+Sort by:
+
+Rating (ascending/descending)
+
+Popularity (ascending/descending)
 
 ### ❌ Remove from Watchlist
 - Remove items from the watchlist with a single click.
