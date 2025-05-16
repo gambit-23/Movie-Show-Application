@@ -95,16 +95,16 @@ http://localhost:5173
 ## 📸 Screenshots
 
 - **Poster**
-![Poster](https://raw.githubusercontent.com/gambit-23/Movie-Show-Application/main/assets/poster.jpg)
+![Poster](https://res.cloudinary.com/gambit23/image/upload/v1747385317/movie-show/rt2qvdb5kagit0y5zgnf.jpg)
 
 - **Home Page**
-![Home Screen](https://github.com/gambit-23/Movie-Show-Application/blob/main/assets/home-screen.jpg?raw=true)
+![Home Screen](https://res.cloudinary.com/gambit23/image/upload/v1747385317/movie-show/smblihr2lfacfnd54o9h.jpg)
 
 - **Watchlist**
-![Watchlist Section](https://raw.githubusercontent.com/gambit-23/Movie-Show-Application/main/assets/watchlist.jpg)
+![Watchlist Section](https://res.cloudinary.com/gambit23/image/upload/v1747385317/movie-show/uetouhkzrrduij6sbe3i.jpg)
 
 - **Trailer Modal**
-![Trailer popup](https://raw.githubusercontent.com/gambit-23/Movie-Show-Application/main/assets/trailer.jpg)
+![Trailer popup](https://res.cloudinary.com/gambit23/image/upload/v1747385317/movie-show/jitdjj6s9w30inbx9wtv.jpg)
 
 
 
