@@ -98,7 +98,7 @@ http://localhost:5173
 ![Poster](https://raw.githubusercontent.com/gambit-23/Movie-Show-Application/main/assets/poster.jpg)
 
 - **Home Page**
-![Home Screen](https://raw.githubusercontent.com/gambit-23/Movie-Show-Application/main/assets/home-screen.jpg)
+![Home Screen](https://github.com/gambit-23/Movie-Show-Application/blob/main/assets/home-screen.jpg?raw=true)
 
 - **Watchlist**
 ![Watchlist Section](https://raw.githubusercontent.com/gambit-23/Movie-Show-Application/main/assets/watchlist.jpg)
