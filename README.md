@@ -13,21 +13,21 @@ The project is deployed on Vercel and includes CI/CD via GitHub Actions.
 ### 📌 Home Page
 - Navigation bar with logo, Home, and Watchlist buttons.
 
-Hero Poster section showcasing highlighted content.
+- Hero Poster section showcasing highlighted content.
 
-Grid layout displaying Movie/TV Show cards with:
+- Grid layout displaying Movie/TV Show cards with:
 
-Title, rating, and popularity.
+- Title, rating, and popularity.
 
-Hover effect on desktop and tap effect on mobile for brief descriptions.
+- Hover effect on desktop and tap effect on mobile for brief descriptions.
 
-Trailer Modal popup for watching trailers (if available via TMDB).
+- Trailer Modal popup for watching trailers (if available via TMDB).
 
-Pagination support:
+- Pagination support:
 
-Page navigation buttons.
+- Page navigation buttons.
 
-"Go to Page" input box to jump to a specific page.
+- "Go to Page" input box to jump to a specific page.
 
 ### ⭐ Watchlist
 - Add movies/TV shows from the home page using an Add button.
