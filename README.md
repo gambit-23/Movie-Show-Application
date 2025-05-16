@@ -94,16 +94,16 @@ http://localhost:5173
 
 ## 📸 Screenshots
 - **Poster**
-![Poster](./public/assets/poster.jpg)
+![Poster](./assets/poster.jpg)
 
 - **Home Page**
-![Home Screen](./public/assets/home-screen.jpg)
+![Home Screen](./assets/home-screen.jpg)
 
 - **Watchlist**
-![Watchlist Section](./public/assets/watchlist.jpg)
+![Watchlist Section](./assets/watchlist.jpg)
 
 - **Trailer Modal**
-![Trailer popup](./public/assets/trailer.jpg)
+![Trailer popup](./assets/trailer.jpg)
 
 ---
 
