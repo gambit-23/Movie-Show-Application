@@ -90,7 +90,7 @@ Open in browser:
 http://localhost:5173
 ```
 
----
+
 
 ## 📸 Screenshots
 
@@ -106,7 +106,7 @@ http://localhost:5173
 - **Trailer Modal**
 ![Trailer popup](./assets/trailer.jpg)
 
----
+
 
 🔗 Visit Live
 Explore the live application here:
