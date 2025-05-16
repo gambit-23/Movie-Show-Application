@@ -92,7 +92,7 @@ http://localhost:5173
 
 ---
 
-## 📸 Screenshots
+📸 Screenshots
 - **Poster**
 ![Poster](./assets/poster.jpg)
 
